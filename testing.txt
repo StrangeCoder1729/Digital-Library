@@ -1,0 +1,47 @@
+
+
+
+ 
+
+def updating (write):
+    with open("harry.txt","a") as f:
+        f.write(f"{write} \n")
+        
+
+def delete (word):
+    lst_old = []
+    lst_new = []
+    with open ("harry.txt","r+") as f:
+        l = f.readlines()
+        for i in l:
+            lst_old.append(i)
+        print(lst_old)
+        m = len(lst_old)
+        print(lst_old.index(f"{word} \n"))
+        for i in lst_old:
+            if(f"{word} \n" in lst_old):
+                lst_old.remove(f"{word} \n")
+                print("All Working")
+        # print(f"new list : {lst_old}")
+        for letter in lst_old:
+            lst_new.append(letter)
+        print(lst_new)
+
+    with open("harry.txt","wt") as f:
+        for letter in lst_new:
+            f.write(letter)
+
+        
+    
+
+
+choice = input("Enter your choice : ")
+
+if(choice == "up"):
+    write = input("Enter the Word you want to update : ")
+    updating(write)
+ 
+elif(choice == "del"):
+    word = input("Enter the Word you want to remove : ")
+    delete(word)
+
